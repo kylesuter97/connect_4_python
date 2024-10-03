@@ -4,7 +4,7 @@ import grid
 
 # entry is user input of cell position
 def check_vertical(entry):
-    if entry == "":
+    if entry == "" or entry not in cells.cell_dict.keys():
         return False
     reference_cell = cells.cell_dict[entry]
     cell_entry = reference_cell.player_in
@@ -19,7 +19,7 @@ def check_vertical(entry):
     return False
 
 def check_horizontal(entry):
-    if entry == "":
+    if entry == "" or entry not in cells.cell_dict.keys():
         return False
     reference_cell = cells.cell_dict[entry]
     row_index = reference_cell.row - 1
@@ -37,7 +37,7 @@ def check_horizontal(entry):
 
 
 def check_diagonal(entry):
-    if entry == "":
+    if entry == "" or entry not in cells.cell_dict.keys():
         return False
     reference_cell = cells.cell_dict[entry]
     cell_entry = reference_cell.player_in
