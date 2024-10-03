@@ -22,8 +22,14 @@ def play():
     while (grid.grid_full() is False) and (check_moves.winner_check(player_entry) is False):
         player_entry = input(f"Player {active_player[1]}, please type a cell to populate: ").upper()
         if player_entry in cells.cell_dict.keys():
+            # check if cell was already populated
+            if cells.cell_dict[player_entry].is_empty is False:
+                print("That cell is taken!")
+                continue
+            # if cell not populated, try to populate it
             cells.cell_dict[player_entry].enter(active_player)
-            # check if cell just entered is still empty, if so it was an invalid entry as it was floating
+            # check if cell just entered is still empty, if so it was an invalid entry (as defined in cell class), 
+            # as it was floating
             if cells.cell_dict[player_entry].is_empty is True:
                 continue
             else:   
