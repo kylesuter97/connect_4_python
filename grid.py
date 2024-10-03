@@ -22,8 +22,16 @@ def print_grid():
         """
 
 def grid_full():
-    for c in cells.cell_list:
-        if c.is_empty is True:
-            return False
-        else:
-            return True
+    count_empty = 0
+    for l in cells.cell_list:
+        for c in l:
+            if c.is_empty is True:
+                count_empty += 1
+            else:
+                continue
+    if count_empty != 0:
+        return False
+    else:
+        return True
+
+    
